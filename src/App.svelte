@@ -23,7 +23,8 @@
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
-		width: 400px;
+		width: 100%;
+		max-width: 400px;
 		/*height: 600px;*/
 		border: 1px solid #2d2d2f;
 		border-radius: 14px;
