@@ -85,6 +85,14 @@
 		box-sizing: border-box;
 	}
 
+.container2{
+	margin: 0 auto;
+	padding: 100px 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
 </style>
 
 <script>
@@ -92,6 +100,8 @@
 
 	import Button from './Button.svelte';
 	import { calculate } from './calculate';
+	import Box from './Box.svelte';
+
 	$: input = [];
 	$: result = Number.isInteger(calculate(input)) ? calculate(input) : calculate(input).toFixed(5);
 	function action(value) {
@@ -131,6 +141,23 @@
 		}
 	}
 
+// add function
+window.onload = function(){
+	function opacityAB(){
+		if(this.style.opacity == 0){
+			this.style.opacity='1';
+		}else{
+			document.querySelectorAll('.box').forEach(element => {
+			  element.style.opacity='1';
+			});
+			this.style.opacity='0';
+		}
+	}
+	document.querySelector('.box-red').onclick = opacityAB;
+	document.querySelector('.box-blue').onclick = opacityAB;
+	document.querySelector('.box-green').onclick = opacityAB;
+}
+// add function end
 </script>
 
 <main>
@@ -180,3 +207,9 @@
 	    <Button value={'='} {action} />
 	</div>
 </div>
+
+<!-- add container -->
+<div id="container2" class="container2">
+	<Box/>
+</div>
+<!-- add container end -->
